@@ -1,0 +1,12 @@
+services:
+  dpr-bot:
+    build: .
+    container_name: dpr-app
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./ChicagoReport:/usr/src/app/ChicagoReport
+      # This maps your Proxmox mount to the Docker container
+      - /mnt/production:/mnt/production
